@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.util.Random;
 
-public class Character implements Parcelable {
+public class DndCharacter implements Parcelable {
 
     private String descriptor;
     private String race;
@@ -13,7 +13,7 @@ public class Character implements Parcelable {
     private String whatDo;
     private String total;
 
-    public Character() {
+    public DndCharacter() {
         Random rand = new Random();
         int n = rand.nextInt(4);
         switch (n + 1) {
@@ -82,7 +82,7 @@ public class Character implements Parcelable {
         }
     }
 
-    protected Character(Parcel in) {
+    protected DndCharacter(Parcel in) {
         descriptor = in.readString();
         race = in.readString();
         cclass = in.readString();
@@ -90,15 +90,15 @@ public class Character implements Parcelable {
         total = in.readString();
     }
 
-    public static final Creator<Character> CREATOR = new Creator<Character>() {
+    public static final Creator<DndCharacter> CREATOR = new Creator<DndCharacter>() {
         @Override
-        public Character createFromParcel(Parcel in) {
-            return new Character(in);
+        public DndCharacter createFromParcel(Parcel in) {
+            return new DndCharacter(in);
         }
 
         @Override
-        public Character[] newArray(int size) {
-            return new Character[size];
+        public DndCharacter[] newArray(int size) {
+            return new DndCharacter[size];
         }
     };
 
@@ -154,5 +154,16 @@ public class Character implements Parcelable {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "DndCharacter{" +
+                "descriptor='" + descriptor + '\'' +
+                ", race='" + race + '\'' +
+                ", cclass='" + cclass + '\'' +
+                ", whatDo='" + whatDo + '\'' +
+                ", total='" + total + '\'' +
+                '}';
     }
 }
