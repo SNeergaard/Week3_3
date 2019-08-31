@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class DDRVAdapter extends RecyclerView.Adapter<DDRVAdapter.ViewHolder> {
         private TextView tvRace;
         private TextView tvClass;
         private TextView tvWhat;
+        private ImageView ivImage;
         private DndCharacter itemDndCharacter;
 
         public ViewHolder(View itemView){
@@ -45,6 +47,7 @@ public class DDRVAdapter extends RecyclerView.Adapter<DDRVAdapter.ViewHolder> {
             tvRace = itemView.findViewById(R.id.tvRace);
             tvClass = itemView.findViewById(R.id.tvClass);
             tvWhat = itemView.findViewById(R.id.tvWhat);
+            ivImage = itemView.findViewById(R.id.ivImage);
             itemView.setOnClickListener(this);
         }
 
@@ -55,6 +58,7 @@ public class DDRVAdapter extends RecyclerView.Adapter<DDRVAdapter.ViewHolder> {
             tvRace.setText(dndCharacter.getRace());
             tvClass.setText(dndCharacter.getCclass());
             tvWhat.setText(dndCharacter.getWhatDo());
+            ivImage.setImageResource(dndCharacter.getImage());
             setItemDndCharacter(dndCharacter);
         }
 

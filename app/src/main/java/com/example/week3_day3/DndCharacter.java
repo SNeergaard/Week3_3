@@ -2,6 +2,7 @@ package com.example.week3_day3;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.ImageView;
 
 import java.util.Random;
 
@@ -11,7 +12,7 @@ public class DndCharacter implements Parcelable {
     private String race;
     private String cclass;
     private String whatDo;
-    private String total;
+    private int image;
 
     public DndCharacter() {
         Random rand = new Random();
@@ -33,18 +34,23 @@ public class DndCharacter implements Parcelable {
         switch (x + 1) {
             case 1:
                 this.race = "human ";
+                this.image = R.drawable.human;
                 break;
             case 2:
                 this.race = "elf ";
+                this.image = R.drawable.elf;
                 break;
             case 3:
                 this.race = "tiefling ";
+                this.image = R.drawable.tiefling;
                 break;
             case 4:
                 this.race = "half-orc ";
+                this.image = R.drawable.halforc;
                 break;
             case 5:
                 this.race = "dwarf ";
+                this.image = R.drawable.dwarf;
         }
         int y = rand.nextInt(6);
         switch (y + 1) {
@@ -87,7 +93,7 @@ public class DndCharacter implements Parcelable {
         race = in.readString();
         cclass = in.readString();
         whatDo = in.readString();
-        total = in.readString();
+        image = in.readInt();
     }
 
     public static final Creator<DndCharacter> CREATOR = new Creator<DndCharacter>() {
@@ -113,7 +119,7 @@ public class DndCharacter implements Parcelable {
         parcel.writeString(race);
         parcel.writeString(cclass);
         parcel.writeString(whatDo);
-        parcel.writeString(total);
+        parcel.writeInt(image);
     }
 
     public String getCclass() {
@@ -148,12 +154,12 @@ public class DndCharacter implements Parcelable {
         this.whatDo = whatDo;
     }
 
-    public String getTotal() {
-        return total;
+    public int getImage() {
+        return image;
     }
 
-    public void setTotal(String total) {
-        this.total = total;
+    public void setImage(int image) {
+        this.image = image;
     }
 
     @Override
@@ -163,7 +169,7 @@ public class DndCharacter implements Parcelable {
                 ", race='" + race + '\'' +
                 ", cclass='" + cclass + '\'' +
                 ", whatDo='" + whatDo + '\'' +
-                ", total='" + total + '\'' +
                 '}';
     }
+
 }

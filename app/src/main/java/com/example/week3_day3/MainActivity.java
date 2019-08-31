@@ -62,9 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendIntent(View view) {
         //Toast.makeText(view.getContext(), "Button MESSAGE", Toast.LENGTH_SHORT).show();
+        dndCharacterForRV.clear();
         Intent intent = new Intent();
         intent.setAction("character");
         MyDandDIntentService.startActionCharacter(this);
+
         //sendBroadcast(intent);
     }
 
